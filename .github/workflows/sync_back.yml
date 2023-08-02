@@ -1,7 +1,7 @@
 name: Synchronize the Wiki
-
+on:
+  gollum
 jobs:
-  on: gollum
   sync:
     runs-on: ubuntu-latest
     permissions:
