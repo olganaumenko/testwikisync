@@ -1,9 +1,6 @@
 # Welcome to UnitTestBot C/C++ Wiki!
 
-**TEST bidirect 1**
-**TEST bidirect 2**
-PR approval 
-
+**TEST bidirect 2 first to wiki**
 
 Generate ready-to-use test cases for your C/C++ code and feel free to contribute.
 
