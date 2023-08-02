@@ -50,7 +50,5 @@ jobs:
           branch: wiki_branch # since default branch is develop in this example
       - name: Create PR
         run: gh pr create --fill
-        with:
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
 
