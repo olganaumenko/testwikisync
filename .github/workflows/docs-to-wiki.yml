@@ -50,5 +50,7 @@ jobs:
           branch: from_wiki_$number # since default branch is develop in this example
       - name: Create PR
         run: gh pr create --title "Wiki sync PR" --body "Everything works again"
+        env:
+          GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
 
