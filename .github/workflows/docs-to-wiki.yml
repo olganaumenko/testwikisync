@@ -44,28 +44,7 @@ jobs:
         with:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           ref: ${{ github.event.repository.default_branch }}
-      - name: Is this safe to do?
-        id: safe
-        run: |
-          # to check if the Home.md file exists locally already, is so we can assume a sync has been done, and bidirection can now run safely.
-          INDEX_EXISTS=$(find docs/* -name "Home.md")
-          
-          if [ ! -z $INDEX_EXISTS ] 
-          then
-            echo "not a first time run"
-          else
-            OUTPUT="# Oopsy, we've hit a road block, but we're almost there \n
-            :rocket: - you are on your way, but first you need to sync content to the wiki first before the reverse can happen else you will lose data\n
-            this can be done by running this job manually on your default branch whilst ensuring you have\n
-            created a md file in docs named Home.md to pass this step"
-            echo -e $OUTPUT >> $GITHUB_STEP_SUMMARY
-            exit 1
-          fi
-        shell: bash
-      - name: Create branch first
-        run: |
-          git checkout -b $SYNC_CHANGES_REPO_NAME
-        shell: bash
+
       - name: Sync Wiki to Docs
         uses: newrelic/wiki-sync-action@v1.0.1
         with:
@@ -79,8 +58,8 @@ jobs:
       - name: Create pull-request
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: ${{ env.SYNC_CHANGES_REPO_NAME }}
-          destination_branch: ${{ github.event.repository.default_branch }}
+          source_branch: wiki
+          destination_branch: docs
           pr_title: "[Chore] - Syncing Wiki changes in ${{ env.SYNC_CHANGES_REPO_NAME }} into default branch"
           pr_body: ":crown: *An automated PR* This is an automated PR to sync this repository's wiki docs with your docs in the repo via a PR."
           pr_label: "docs,automation"
