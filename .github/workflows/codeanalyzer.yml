@@ -1,0 +1,17 @@
+name: "UTBot code analysis"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: UTBot code analysis
+        uses: UnitTestBot/UTBotCpp-action@test-1.0.26
+        with:
+          add_tests: 'true'
+          refresh_tests: 'false'
+          utbot_version: '2022.12.0'
+          scope: 'project'
