@@ -1,6 +1,6 @@
 # Welcome to UnitTestBot C/C++ Wiki!
 
-**new newrelic**
+**new TRY**
 
 Generate ready-to-use test cases for your C/C++ code and feel free to contribute.
 
