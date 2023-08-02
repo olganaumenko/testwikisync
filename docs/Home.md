@@ -1,6 +1,6 @@
 # Welcome to UnitTestBot C/C++ Wiki!
 
-**GH21**
+**GH22**
 
 Generate ready-to-use test cases for your C/C++ code and feel free to contribute.
 
