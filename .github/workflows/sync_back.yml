@@ -1,0 +1,13 @@
+name: Synchronize the Wiki
+
+jobs:
+  on: gollum
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lonnen/sync-wiki-to-branch-action@v1.0.0
+        with:
+          branch: wiki
+          github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
