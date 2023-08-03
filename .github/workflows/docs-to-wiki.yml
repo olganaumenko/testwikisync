@@ -36,11 +36,12 @@ jobs:
     if: github.event_name == 'gollum'
     steps:
       - name: Checkout Repo
+        continue-on-error: true
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }} # allows us to push back to repo
       - name: Sync Wiki to Docs
-        if: ${{ success() || failure() }}
+        continue-on-error: true
         uses: olganaumenko/wiki-sync-action@main
         with:
           source: wiki
