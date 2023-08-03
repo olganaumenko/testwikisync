@@ -1,6 +1,6 @@
 # Welcome to UnitTestBot C/C++ Wiki!
 
-**It works! FWD 25**
+**It works! FWD 26**
 
 Generate ready-to-use test cases for your C/C++ code and feel free to contribute.
 
