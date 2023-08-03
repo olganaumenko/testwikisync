@@ -51,6 +51,7 @@ jobs:
           branch: wiki_branch
       - name: Create PR for success
         continue-on-error: true
+        if: ${{ success() }}
         run: gh pr create --fill
         env:
           GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
