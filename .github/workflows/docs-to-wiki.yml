@@ -49,8 +49,12 @@ jobs:
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
           branch: wiki_branch
+      - name: Test fsilure
+        if: steps.wikidoc.conclusion == 'failure'
+        run: |
+          echo Hello I'm wikidoc.conclusion failure
+
       - name: Create PR
-        if: steps.wikidoc.conclusion == 'success'
         run: gh pr create --fill
         env:
           GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
