@@ -48,7 +48,7 @@ jobs:
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
           branch: wiki_branch
-      - name: Test fsilure
+      - name: Test failure
         if: ${{ failure() }}
         run: |
           echo Hello I'm a failure
