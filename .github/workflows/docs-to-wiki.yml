@@ -48,8 +48,12 @@ jobs:
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
           branch: wiki_branch # since default branch is develop in this example
-          if: success()
-          run: gh pr create --fill
+          if: ${{ success() }}
 
+      - name: Create PR
+        if: success()
+        run: gh pr create --fill
+        env:
+          GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
 
