@@ -53,7 +53,7 @@ jobs:
           echo "Erroring"
           exit 1
       - name: Output report 1
-        if: true
+        if: ${{ failure() }}
         run: |
           echo "There has been exit 1 earlier"
 
