@@ -48,11 +48,6 @@ jobs:
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
           branch: wiki_branch
-      - name: Output report 1
-        if: ${{ failure() }}
-        run: |
-          echo "There has been exit 1 earlier"
-
       - name: Create PR
         if: false
         run: gh pr create --fill
