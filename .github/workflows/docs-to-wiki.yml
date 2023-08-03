@@ -47,9 +47,17 @@ jobs:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
-          branch: wiki_branch # since default branch is develop in this example
+          branch: wiki_branch
+        run: |
+          echo "Erroring"
+          exit 1
+      - name: Output report 1
+        if: true
+        run: |
+          echo "There has been exit 1 earlier"
+
       - name: Create PR
-        if: '!failure()'
+        if: false
         run: gh pr create --fill
         env:
           GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
