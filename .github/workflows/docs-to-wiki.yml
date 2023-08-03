@@ -48,6 +48,7 @@ jobs:
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
           branch: wiki_branch
+      - name: Erroring
         run: |
           echo "Erroring"
           exit 1
