@@ -48,6 +48,10 @@ jobs:
           gitAuthorName: ${{ env.GIT_AUTHOR_NAME }}
           gitAuthorEmail: ${{ env.GIT_AUTHOR_EMAIL }}
           branch: wiki_branch
+      - name: If exit 1
+        if: ${{ failure() }}
+        run: |
+          echo "Hi I am exit 1 from wikisync action"
       - name: Create PR for success
         if: ${{ success() }}
         run: gh pr create --fill
